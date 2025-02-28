@@ -38,3 +38,4 @@ entry("sleep");
 entry("uptime");
 entry("hello");
 entry("xv6");
+entry("trace");

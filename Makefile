@@ -196,6 +196,7 @@ UPROGS=\
 	$U/_zombie\
 	$U/_testhello\
 	$U/_xv6\
+	$U/_trace\
 
 
 ifeq ($(LAB),syscall)

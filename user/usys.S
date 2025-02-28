@@ -115,3 +115,8 @@ xv6:
  li a7, SYS_xv6
  ecall
  ret
+.global trace
+trace:
+ li a7, SYS_trace
+ ecall
+ ret

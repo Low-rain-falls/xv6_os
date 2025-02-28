@@ -26,6 +26,7 @@ int sleep(int);
 int uptime(void);
 int hello(void);
 int xv6(int);
+int trace(int);
 
 // ulib.c
 int stat(const char*, struct stat*);
