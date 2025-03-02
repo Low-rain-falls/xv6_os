@@ -9,6 +9,7 @@
 #include "riscv.h"
 #include "defs.h"
 
+uint64 kfree_memsize(void);
 void freerange(void *pa_start, void *pa_end);
 
 extern char end[]; // first address after kernel.
@@ -86,4 +87,21 @@ kalloc(void)
   if(r)
     memset((char*)r, 5, PGSIZE); // fill with junk to easily detect errors if there is misuse.
   return (void*)r;
+}
+
+// coun the number of free memory
+uint64 kfree_memsize(void) {
+  acquire(&kmem.lock);
+
+  uint64 free_mem = 0;
+  struct run *r = kmem.freelist;
+
+
+  while(r) {
+    free_mem += PGSIZE;
+    r = r->next;
+  }
+
+  release(&kmem.lock);
+  return free_mem;
 }

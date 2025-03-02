@@ -693,3 +693,16 @@ procdump(void)
     printf("\n");
   }
 }
+
+// count the number of active processes
+uint64 count_active_processes(void) {
+  struct proc *p;
+  uint64 count = 0;
+  for (p = proc; p < &proc[NPROC]; p++) {
+    if (p->state != UNUSED) {
+      count += 1;
+    }
+  }
+
+  return count;
+}
