@@ -104,7 +104,7 @@ extern uint64 sys_close(void);
 extern uint64 sys_hello(void);
 extern uint64 sys_xv6(void);
 extern uint64 sys_trace(void);
-
+extern uint64 sys_sysinfo(void);
 
 
 // An array mapping syscall numbers from syscall.h
@@ -134,6 +134,7 @@ static uint64 (*syscalls[])(void) = {
 [SYS_hello]   sys_hello,
 [SYS_xv6]     sys_xv6,
 [SYS_trace]   sys_trace,
+[SYS_sysinfo] sys_sysinfo,
 };
 
 static char *syscall_names[] = {
@@ -161,6 +162,7 @@ static char *syscall_names[] = {
   [SYS_hello]   "hello",
   [SYS_xv6]     "xv6",
   [SYS_trace]   "trace",
+  [SYS_sysinfo] "sysinfo",
 };
 
 void
